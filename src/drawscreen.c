@@ -2450,8 +2450,11 @@ win_update(win_T *wp)
 	    fold_count = foldedCount(wp, lnum, &win_foldinfo);
 	    if (fold_count != 0)
 	    {
-		fold_line(wp, fold_count, &win_foldinfo, lnum, row);
-		++row;
+		if (wp->w_p_fsl)
+		{
+		    fold_line(wp, fold_count, &win_foldinfo, lnum, row);
+		    ++row;
+		}
 		--fold_count;
 		wp->w_lines[idx].wl_folded = TRUE;
 		wp->w_lines[idx].wl_lastlnum = lnum + fold_count;
@@ -2541,16 +2544,22 @@ win_update(win_T *wp)
 	    {
 #ifdef FEAT_FOLDING
 		fold_count = foldedCount(wp, lnum, &win_foldinfo);
-		if (fold_count != 0)
+		if (fold_count != 0 && wp->w_p_fsl)
+		{
 		    fold_line(wp, fold_count, &win_foldinfo, lnum, row);
+		    ++row;
+		}
 		else
 #endif
+		{
 		    (void)win_line(wp, lnum, srow, wp->w_height,
 					       wp->w_lines[idx].wl_size, &spv);
+
+		    // This line does not need to be drawn, advance to the next one.
+		    row += wp->w_lines[idx++].wl_size;
+		}
 	    }
 
-	    // This line does not need to be drawn, advance to the next one.
-	    row += wp->w_lines[idx++].wl_size;
 	    if (row > wp->w_height)	// past end of screen
 		break;
 #ifdef FEAT_FOLDING
