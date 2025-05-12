@@ -3838,6 +3838,14 @@ A jump table for the options with a short description can be found at |Q_op|.
 	overrule the 'foldlevel' value for specific files.
 	When the value is negative, it is not used.
 
+			*'foldshowline'* *'fsl'* *'nofoldshowline'* *'nofsl'*
+'foldshowline' 'fsl'	boolean (default on)
+			local to window
+			{not available when compiled without the |+folding|
+			feature}
+	When off, fold line is not shown.
+	See |folding|.
+
 						*'foldmarker'* *'fmr'* *E536*
 'foldmarker' 'fmr'	string (default: "{{{,}}}")
 			local to window

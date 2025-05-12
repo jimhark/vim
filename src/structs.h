@@ -236,6 +236,10 @@ typedef struct
 # define w_p_fml w_onebuf_opt.wo_fml	// 'foldminlines'
     long	wo_fdn;
 # define w_p_fdn w_onebuf_opt.wo_fdn	// 'foldnestmax'
+    int     wo_fsl;
+# define w_p_fsl w_onebuf_opt.wo_fsl	// 'foldshowline'
+    int		wo_fsl_save;
+# define w_p_fsl_save w_onebuf_opt.wo_fsl_save	// 'foldshowline' saved for diff mode
 # ifdef FEAT_EVAL
     char_u	*wo_fde;
 # define w_p_fde w_onebuf_opt.wo_fde	// 'foldexpr'

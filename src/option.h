@@ -1310,6 +1310,7 @@ enum
     , WV_FDM
     , WV_FML
     , WV_FDN
+    , WV_FSL
 # ifdef FEAT_EVAL
     , WV_FDE
     , WV_FDT

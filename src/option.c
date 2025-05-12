@@ -6681,6 +6681,7 @@ get_varp(struct vimoption *p)
 	case PV_FDM:	return (char_u *)&(curwin->w_p_fdm);
 	case PV_FML:	return (char_u *)&(curwin->w_p_fml);
 	case PV_FDN:	return (char_u *)&(curwin->w_p_fdn);
+	case PV_FSL:	return (char_u *)&(curwin->w_p_fsl);
 # ifdef FEAT_EVAL
 	case PV_FDE:	return (char_u *)&(curwin->w_p_fde);
 	case PV_FDT:	return (char_u *)&(curwin->w_p_fdt);
@@ -7009,6 +7010,8 @@ copy_winopt(winopt_T *from, winopt_T *to)
     to->wo_fdm_save = from->wo_diff_saved
 			       ? vim_strsave(from->wo_fdm_save) : empty_option;
     to->wo_fdn = from->wo_fdn;
+    to->wo_fsl = from->wo_fsl;
+    to->wo_fsl_save = from->wo_fsl_save;
 # ifdef FEAT_EVAL
     to->wo_fde = copy_option_val(from->wo_fde);
     to->wo_fdt = copy_option_val(from->wo_fdt);

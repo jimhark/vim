@@ -718,6 +718,7 @@ Short explanation of each option:		*option-list*
 'foldexpr'	  'fde'     expression used when 'foldmethod' is "expr"
 'foldignore'	  'fdi'     ignore lines when 'foldmethod' is "indent"
 'foldlevel'	  'fdl'     close folds with a level higher than this
+'foldshowline'	  'fsl'     set to show fold line for a closed line
 'foldlevelstart'  'fdls'    'foldlevel' when starting to edit a file
 'foldmarker'	  'fmr'     markers used when 'foldmethod' is "marker"
 'foldmethod'	  'fdm'     folding type

@@ -174,6 +174,7 @@
 # define PV_FDM		OPT_WIN(WV_FDM)
 # define PV_FML		OPT_WIN(WV_FML)
 # define PV_FDN		OPT_WIN(WV_FDN)
+# define PV_FSL    OPT_WIN(WV_FSL)
 # ifdef FEAT_EVAL
 #  define PV_FDE	OPT_WIN(WV_FDE)
 #  define PV_FDT	OPT_WIN(WV_FDT)
@@ -1103,6 +1104,15 @@ static struct vimoption options[] =
 			    (char_u *)&p_fdo, PV_NONE, did_set_foldopen, expand_set_foldopen,
 		 {(char_u *)"block,hor,mark,percent,quickfix,search,tag,undo",
 						 (char_u *)0L}
+#else
+			    (char_u *)NULL, PV_NONE, NULL, NULL,
+			    {(char_u *)NULL, (char_u *)0L}
+#endif
+			    SCTX_INIT},
+    {"foldshowline", "fsl", P_BOOL|P_VI_DEF|P_RWIN,
+#ifdef FEAT_FOLDING
+			    (char_u *)VAR_WIN, PV_FSL, NULL, NULL,
+			    {(char_u *)TRUE, (char_u *)0L}
 #else
 			    (char_u *)NULL, PV_NONE, NULL, NULL,
 			    {(char_u *)NULL, (char_u *)0L}

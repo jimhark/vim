@@ -575,6 +575,9 @@ with the script ID (|local-function|).  Examples: >
 		set foldtext=s:MyFoldText()
 		set foldtext=<SID>SomeFoldText()
 <
+
+Resetting 'foldshowline' hides closed fold lines.
+
 Note that backslashes need to be used for characters that the ":set" command
 handles differently: Space, backslash and double-quote. |option-backslash|
 
@@ -614,6 +617,7 @@ OTHER OPTIONS
 			displayed closed.
 'foldnestmax' 'fdn':	Maximum nesting for "indent" and "syntax" folding.
 'foldopen'    'fdo':	Which kinds of commands open closed folds.
+'foldshowline' 'fsl':	Show fold line, disable to hide fold line
 'foldclose'   'fcl':	When the folds not under the cursor are closed.
 
 ==============================================================================
